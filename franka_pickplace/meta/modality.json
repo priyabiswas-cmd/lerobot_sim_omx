@@ -1,0 +1,14 @@
+{
+  "observation": {
+    "state": [
+      "observation.state"
+    ],
+    "images": [
+      "observation.images.top",
+      "observation.images.wrist"
+    ]
+  },
+  "action": [
+    "action"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "dataset_type": "LeRobotDataset",
+  "task": "Pick up the red cube and place it to the right.",
+  "robot": "franka_panda",
+  "num_episodes": 2,
+  "total_frames": 136,
+  "fps": 10,
+  "image_width": 224,
+  "image_height": 224,
+  "observation_space": {
+    "state_dim": 9,
+    "cameras": [
+      "top",
+      "wrist"
+    ]
+  },
+  "action_space": {
+    "action_dim": 9,
+    "description": "9-dim joint position targets [7 arm + 2 fingers]"
+  }
+}

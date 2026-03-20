@@ -115,6 +115,8 @@ from lerobot.robots import (  # noqa: F401
     so_follower,
     unitree_g1 as unitree_g1_robot,
 )
+import lerobot.robots.sim_omx  # noqa: F401
+import lerobot.teleoperators.sim_omx_teleop  # noqa: F401
 from lerobot.teleoperators import (  # noqa: F401
     Teleoperator,
     TeleoperatorConfig,
@@ -530,6 +532,8 @@ def record(cfg: RecordConfig) -> LeRobotDataset:
         with VideoEncodingManager(dataset):
             recorded_episodes = 0
             while recorded_episodes < cfg.dataset.num_episodes and not events["stop_recording"]:
+                if teleop is not None and hasattr(teleop, 'reset_episode'):
+                    teleop.reset_episode()
                 log_say(f"Recording episode {dataset.num_episodes}", cfg.play_sounds)
                 record_loop(
                     robot=robot,

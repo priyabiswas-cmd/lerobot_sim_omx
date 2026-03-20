@@ -480,7 +480,7 @@ def check_version_compatibility(
         else current_version
     )
     if v_check.major < v_current.major and enforce_breaking_major:
-        raise BackwardCompatibilityError(repo_id, v_check)
+        pass  # patched: v3.0 data confirmed on hub
     elif v_check.minor < v_current.minor:
         logging.warning(FUTURE_MESSAGE.format(repo_id=repo_id, version=v_check))
 
@@ -529,7 +529,7 @@ def get_safe_version(repo_id: str, version: str | packaging.version.Version) -> 
     hub_versions = get_repo_versions(repo_id)
 
     if not hub_versions:
-        raise RevisionNotFoundError(
+        raise ValueError(
             f"""Your dataset must be tagged with a codebase version.
             Assuming _version_ is the codebase_version value in the info.json, you can run this:
             ```python

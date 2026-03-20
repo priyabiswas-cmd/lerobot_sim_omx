@@ -1,0 +1,136 @@
+{
+  "codebase_version": "v2.1",
+  "robot_type": "panda",
+  "total_episodes": 30,
+  "total_frames": 2040,
+  "total_tasks": 1,
+  "total_videos": 60,
+  "total_chunks": 1,
+  "chunks_size": 1000,
+  "fps": 10,
+  "splits": {
+    "train": "0:30"
+  },
+  "data_path": "data/train/episode_{episode_index:06d}.parquet",
+  "video_path": "videos/chunk-{chunk_index:03d}/{video_key}/episode_{episode_index:06d}.mp4",
+  "features": {
+    "observation.state": {
+      "dtype": "float32",
+      "shape": [
+        9
+      ],
+      "names": {
+        "joints": [
+          "panda_joint1",
+          "panda_joint2",
+          "panda_joint3",
+          "panda_joint4",
+          "panda_joint5",
+          "panda_joint6",
+          "panda_joint7",
+          "panda_finger_joint1",
+          "panda_finger_joint2"
+        ]
+      }
+    },
+    "observation.images.top": {
+      "dtype": "video",
+      "shape": [
+        224,
+        224,
+        3
+      ],
+      "names": [
+        "height",
+        "width",
+        "channel"
+      ],
+      "video_info": {
+        "video.fps": 10.0,
+        "video.codec": "mp4v",
+        "video.pix_fmt": "yuv420p",
+        "video.is_depth_map": false
+      }
+    },
+    "observation.images.wrist": {
+      "dtype": "video",
+      "shape": [
+        224,
+        224,
+        3
+      ],
+      "names": [
+        "height",
+        "width",
+        "channel"
+      ],
+      "video_info": {
+        "video.fps": 10.0,
+        "video.codec": "mp4v",
+        "video.pix_fmt": "yuv420p",
+        "video.is_depth_map": false
+      }
+    },
+    "action": {
+      "dtype": "float32",
+      "shape": [
+        9
+      ],
+      "names": {
+        "joints": [
+          "panda_joint1",
+          "panda_joint2",
+          "panda_joint3",
+          "panda_joint4",
+          "panda_joint5",
+          "panda_joint6",
+          "panda_joint7",
+          "panda_finger_joint1",
+          "panda_finger_joint2"
+        ]
+      }
+    },
+    "timestamp": {
+      "dtype": "float32",
+      "shape": [
+        1
+      ],
+      "names": null
+    },
+    "frame_index": {
+      "dtype": "int64",
+      "shape": [
+        1
+      ],
+      "names": null
+    },
+    "episode_index": {
+      "dtype": "int64",
+      "shape": [
+        1
+      ],
+      "names": null
+    },
+    "index": {
+      "dtype": "int64",
+      "shape": [
+        1
+      ],
+      "names": null
+    },
+    "task_index": {
+      "dtype": "int64",
+      "shape": [
+        1
+      ],
+      "names": null
+    },
+    "next.done": {
+      "dtype": "bool",
+      "shape": [
+        1
+      ],
+      "names": null
+    }
+  }
+}
